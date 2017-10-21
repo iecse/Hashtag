@@ -1,0 +1,22 @@
+{
+  "name": "hashtag",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hashtag.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "author": "Pranav Tharoor",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "formidable": "^1.1.1",
+    "mongoose": "^4.12.3",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0"
+  }
+}

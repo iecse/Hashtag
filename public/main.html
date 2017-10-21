@@ -1,0 +1,45 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	
+
+
+$(document).ready(() => {
+
+	// $('#fileUpload').submit(function(e) {
+	// 	e.preventDefault();
+	// });
+
+	// $('#files').submit(function(e) {
+	// 	e.preventDefault();
+	// 	console.log('asd');
+	// 	file = this.files[0];
+	// 	let formData = new formData(file);
+	// 	console.log(formData);
+	// });
+
+	$.ajax({
+        url: '/user/details',
+        type: 'GET',
+        success: function(result) {
+            $('#inputName').val(result.data.name);
+            $('#inputEmail').val(result.data.email);
+            $('#inputRegNo').val(result.data.regNo);
+            $('#inputMembershipNo').val(result.data.membershipNo);
+        },
+    });
+
+});
+
+</script>
+
+<!-- <form id="fileUpload"> -->
+<form id="fileUpload" action="upload" method="post" enctype="multipart/form-data">
+	<input id="inputName" type="text" name="name" placeholder="name" /><br />
+	<input id="inputEmail" type="email" name="email" placeholder="email" /><br />
+	<input id="inputRegNo" type="text" name="regNo" placeholder="regNo" /><br />
+	<input id="inputMembershipNo" type="text" name="membershipNo" placeholder="membershipNo" /><br />
+	<input id="files"  type="file" name="filetoupload" /><br />
+	<input type="submit">
+</form>
+<a href="/logout">logout</a>
