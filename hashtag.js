@@ -29,6 +29,11 @@ app.use('/', index);
 app.use('/auth', auth);
 app.use('/upload', upload);
 app.use('/user', user);
+app.use(redirectUnmatched);
+
+function redirectUnmatched(req, res) {
+  res.redirect('/');
+}
 
 const port = 3000;
 app.listen(port, () => {

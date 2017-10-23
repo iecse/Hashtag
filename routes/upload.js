@@ -15,20 +15,20 @@ router.post('/', isLoggedIn, (req, res) => {
 			if(err) throw err;
 		});
 
-		let oldPath = files.filetoupload.path;
-		let dir = __dirname + '/../uploads/' + req.user._id;
-		let extention = path.extname(files.filetoupload.name);
-		let newPath = dir + '/' + req.user.nameConst + extention;
+		if(files['filetoupload']['size'] > 0) {	
+			let oldPath = files.filetoupload.path;
+			let dir = __dirname + '/../uploads/' + req.user._id;
+			let extention = path.extname(files.filetoupload.name);
+			let newPath = dir + '/' + req.user.nameConst + extention;
 
-		if(files.filetoupload.name != '') {		
 			if(!fs.existsSync(dir)) {
 
 				fs.mkdir(dir, err => {
 					if(err) throw err;
-					uploadFile(oldPath, newPath, () => {
-
-						res.sendfile('public/upload-success.html');
-						// res.send({success: true, data:{msg: 'File uploaded'}})
+					uploadFile(oldPath, newPath, err => {
+						if(err) throw err;
+						else
+							res.sendfile('public/success-file.html');
 					});
 				});
 			} else {
@@ -37,15 +37,16 @@ router.post('/', isLoggedIn, (req, res) => {
 					let file = files[0];
 					fs.unlink(path.join(dir, file), err => {
 						if (err) throw err;
-						uploadFile(oldPath, newPath, () => {
-							res.sendfile('public/upload-success.html');
-							// res.send({success: true, data:{msg: 'File uploaded'}})
+						uploadFile(oldPath, newPath, err => {
+							if(err) throw err;
+							else
+								res.sendfile('public/success-file.html');
 						});
 					});
 				});
 			}
 		} else
-			res.sendfile('public/upload-success.html');
+			res.sendfile('public/success-details.html');
 		
 	});
 
@@ -62,13 +63,13 @@ function updateUser(_id, fields, done) {
 
 function uploadFile(oldPath, newPath, done) {
 	fs.readFile(oldPath, (err, data) => {
-		if(err) throw err;
+		if(err) done(err);
 		else
 			fs.writeFile(newPath, data, err => {
-				if(err) throw err;
+				if(err) done(err);
 				else
 					fs.unlink(oldPath, err => {
-						if(err) throw err;
+						if(err) done(err);
 						done();
 					});
 			});

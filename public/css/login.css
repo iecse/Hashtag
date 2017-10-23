@@ -1,0 +1,161 @@
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	font-family: 'Quicksand', sans-serif;
+	background: linear-gradient(271deg, #AD2668,  #4285F4);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 20s ease infinite;
+	-moz-animation: Gradient 20s ease infinite;
+	-o-animation: Gradient 20s ease infinite;
+	animation: Gradient 20s ease infinite;
+	display: flex;
+}
+
+@-webkit-keyframes Gradient {
+	0%{background-position:0% 61%}
+	50%{background-position:100% 40%}
+	100%{background-position:0% 61%}
+}
+@-moz-keyframes Gradient {
+	0%{background-position:0% 61%}
+	50%{background-position:100% 40%}
+	100%{background-position:0% 61%}
+}
+@-o-keyframes Gradient {
+	0%{background-position:0% 61%}
+	50%{background-position:100% 40%}
+	100%{background-position:0% 61%}
+}
+@keyframes Gradient {
+	0%{background-position:0% 61%}
+	50%{background-position:100% 40%}
+	100%{background-position:0% 61%}
+}
+
+* {
+	box-sizing: border-box;
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.heading {
+	font-size: 6rem;
+	color: white;
+	text-align: center;
+}
+
+.login-button {
+	margin: 0 auto;
+	display: inline-block;
+	color: white;
+	font-size: 1.9rem;
+	height: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 75%;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+#facebook-login {
+	background-color: #4267B2;
+}
+
+#google-login {
+	background-color: #EA4335;
+}
+
+.paper {
+	width: 60%;
+	background: #fff;
+	margin-top: 30px;
+	padding: 30px 0 55px 0;
+	box-shadow:
+	/* The top layer shadow */
+	0 -1px 1px rgba(0,0,0,0.15),
+	/* The second layer */
+	0 -10px 0 -5px #eee,
+	/* The second layer shadow */
+	0 -10px 1px -4px rgba(0,0,0,0.15),
+	/* The third layer */
+	0 -20px 0 -10px #eee,
+	/* The third layer shadow */
+	0 -20px 1px -9px rgba(0,0,0,0.15);
+}
+
+.login-title {
+	font-size: 3rem;
+	margin: 0 15% 30px;
+}
+
+.half-container {
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.content-container {
+	width: 75%;
+	margin: 35px 0;
+}
+
+.content {
+	background: rgba(00, 00, 00, 0.2);
+	border-radius: 10px;
+	padding: 20px 40px;
+	color: white;
+	font-size: 1.3rem;
+	margin-top: 28px;
+}
+
+.logo img {
+	height: 30px;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+
+	.heading {
+		font-size: 4.5rem;
+	}
+
+}
+
+@media only screen and (max-width: 800px) {
+
+	body {
+		flex-direction: column;
+		padding-bottom: 40px;
+	}
+
+	.half-container {
+		width: 100%;
+		min-height: auto;
+	}
+
+	.logo {
+		display: none;
+	}
+
+}
+
+@media only screen and (max-width: 550px) {
+
+	.content-container, .paper {
+		width: 100%;
+	}
+
+	.content {
+		border-radius: 0;
+	}
+
+}

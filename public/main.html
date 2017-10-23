@@ -1,45 +1,33 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hashtag</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" href="/images/logo-white.png">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body id="main-body">
+	<div class="logout-container">
+		<a class="logout-button" href="/logout">Logout</a>
+	</div>
+	<div class="form-container">
+		<form id="file-upload" action="upload" method="post" enctype="multipart/form-data">
+			<input id="inputName" type="text" name="name" placeholder="Enter name" /><br />
+			<input id="inputEmail" type="email" name="email" placeholder="Enter email" /><br />
+			<input id="inputRegNo" type="text" name="regNo" placeholder="Enter registration number" /><br />
+			<input id="inputMembershipNo" type="text" name="membershipNo" placeholder="Enter membership number" /><br />
+			<div id="uploaded-file">Upload a file</div>
+			<div class="form-submit">
+				<button id="open-upload" type="button"><i class="fa fa-upload" aria-hidden="true"></i>Upload</button>
+				<input id="files"  type="file" name="filetoupload" />
+				<input id="submit-button" type="submit" value="Submit">
+			<div>
+		</form>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
 
-<script type="text/javascript">
-	
-
-
-$(document).ready(() => {
-
-	// $('#fileUpload').submit(function(e) {
-	// 	e.preventDefault();
-	// });
-
-	// $('#files').submit(function(e) {
-	// 	e.preventDefault();
-	// 	console.log('asd');
-	// 	file = this.files[0];
-	// 	let formData = new formData(file);
-	// 	console.log(formData);
-	// });
-
-	$.ajax({
-        url: '/user/details',
-        type: 'GET',
-        success: function(result) {
-            $('#inputName').val(result.data.name);
-            $('#inputEmail').val(result.data.email);
-            $('#inputRegNo').val(result.data.regNo);
-            $('#inputMembershipNo').val(result.data.membershipNo);
-        },
-    });
-
-});
-
-</script>
-
-<!-- <form id="fileUpload"> -->
-<form id="fileUpload" action="upload" method="post" enctype="multipart/form-data">
-	<input id="inputName" type="text" name="name" placeholder="name" /><br />
-	<input id="inputEmail" type="email" name="email" placeholder="email" /><br />
-	<input id="inputRegNo" type="text" name="regNo" placeholder="regNo" /><br />
-	<input id="inputMembershipNo" type="text" name="membershipNo" placeholder="membershipNo" /><br />
-	<input id="files"  type="file" name="filetoupload" /><br />
-	<input type="submit">
-</form>
-<a href="/logout">logout</a>
