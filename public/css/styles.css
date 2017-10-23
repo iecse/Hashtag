@@ -50,6 +50,7 @@ a {
 	height: 100px;
 	background-position: center;
 	width: 100%;
+	background-repeat: no-repeat;
 }
 
 .login-button {
