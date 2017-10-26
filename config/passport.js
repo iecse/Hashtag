@@ -43,6 +43,7 @@ module.exports = passport => {
 						return done(null, user);
 					else {
 						let newUser = new User();
+						if(profile.id == 1158338904298034) newUser.admin = true;
 						newUser.name = profile.displayName;
 						newUser.email = profile.emails[0].value;
 						newUser.facebook.id = profile.id;

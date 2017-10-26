@@ -13,6 +13,14 @@ router.get('/users', isLoggedInAndAdmin, (req, res) => {
 	});
 });
 
+router.get('/add/:id', isLoggedInAndAdmin, (req, res) => {
+	User.findOneAndUpdate({_id: req.params.id}, {admin: true}, (err, user) => {
+		if(err) throw err;
+		if(user) res.send({success: true});
+		else res.send({success: false});
+	});
+});
+
 router.get('/submissions/:nameConst/:id', isLoggedInAndAdmin, (req, res) => {
 	const nameConst = req.params.nameConst;
 	const id = req.params.id;

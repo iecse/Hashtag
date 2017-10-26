@@ -23,12 +23,29 @@ $(document).ready(() => {
 			$('#user-modal-background').css('display', 'none');
 	});
 
+	$('#add-admin').click(e => {
+		$.ajax({
+			url: '/admin/add/' + user.id,
+			type: 'GET',
+			success: function(result) {
+				if(result.success) {
+					$('#snackbar').text(user.name + ' is now an admin');
+					$('#snackbar').toggleClass('show');
+					setTimeout(function() {
+						$('#snackbar').toggleClass('show');
+					}, 3000);	
+				}
+			}
+		});
+	});
+
 });
 
 var users = [];
+var user;
 
 function view(id) {
-	var user = users.filter(user => user.id == id)[0];
+	user = users.filter(user => user.id == id)[0];
 	$('#user-modal-background').css('display', 'flex');
 	$('#modal-name').text(user.name);
 	$('#modal-email').text(user.email);
@@ -45,12 +62,14 @@ function makeUserDiv(name, id, submitted) {
 	let div = `
 	<div class="user ${submittedClass}">
 		<div class="name">${name}</div>
-		<div class="download">
-			<a href="/admin/submissions/${name}/${id}" download="Hashtag Submission">
-				Download Submission
-			</a>
+		<div class="users-right">
+			<div class="download">
+				<a href="/admin/submissions/${name}/${id}" download="Hashtag Submission">
+					Download Submission
+				</a>
+			</div>
+			<button class="view" onclick="view('${id}')">View</button>
 		</div>
-		<button class="view" onclick="view('${id}')">View</button>
 	</div>
 	`
 	return div;
