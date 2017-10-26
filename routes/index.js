@@ -15,7 +15,9 @@ router.get('/logout', function(req, res) {
 });
 
 function isLoggedIn(req, res, next) {
-	if (req.isAuthenticated())
+	if(req.isAuthenticated() && req.user.admin)
+		return res.redirect('/admin');
+	else if (req.isAuthenticated())
 		return next();
 	res.redirect('/login');
 };

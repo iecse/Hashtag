@@ -3,19 +3,11 @@ const router = express.Router();
 const User = require('../models/user');
 
 router.get('/details', isLoggedIn, (req, res) => {
-	let _id = req.user._id;
-	User.findById(_id, (err, user) => {
-		if(err) throw err;
-		if(user) res.send({
-			success: true,
-			data:{
-				name: user.name,
-				email: user.email,
-				regNo: user.regNo,
-				membershipNo: user.membershipNo
-			}
-		});
-		else res.send({success: false});
+	res.send({
+		name: req.user.name,
+		email: req.user.email,
+		regNo: req.user.regNo,
+		membershipNo: req.user.membershipNo
 	});
 });
 

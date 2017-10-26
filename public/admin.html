@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" href="/images/logo-white.png">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
+</head>
+<body id="admin-body">
+	<div class="logout-container">
+		<a class="logout-button" href="/logout">Logout</a>
+	</div>
+	<div id="users"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/admin.js"></script>
+
+	<!-- Modals - Start -->
+
+	<div id="user-modal-background" class="modal-background">
+		<div id="user-modal" class="modal">
+			<div class="close-modal-container">
+				<div class="close-modal">&times;</div>
+			</div>
+			<div class="modal-content">
+				<div>
+					<table>
+						<tr>
+							<td>Name</td><td><span id="modal-name"></span></td>
+						</tr>
+						<tr>
+							<td>Email</td><td><span id="modal-email"></span></td>
+						</tr>
+						<tr>
+							<td>Membership number</td><td><span id="modal-membership-number"></span></td>
+						</tr>
+						<tr>
+							<td>Registration number</td><td><span id="modal-registration-number"></span></td>
+						</tr>
+						<tr>
+							<td>Name on FB/G+</td><td><span id="modal-name-const"></span></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modals - End -->
+
+</body>
+</html>

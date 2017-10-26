@@ -4,7 +4,9 @@ const userSchema = mongoose.Schema({
 	name: {type: String},
 	email: {type: String},
 	regNo: {type: String},
+	admin: {type: Boolean, default: false},
 	membershipNo: {type: String},
+	submitted: {type: Boolean, default: false},
 	facebook: {
 		name: {type: String},
 		email: {type: String},

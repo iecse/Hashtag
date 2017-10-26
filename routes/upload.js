@@ -24,12 +24,14 @@ router.post('/', isLoggedIn, (req, res) => {
 				let newPath = dir + '/' + req.user.nameConst + extention;
 
 				if(!fs.existsSync(dir)) {
-
 					fs.mkdir(dir, err => {
 						if(err) throw err;
 						uploadFile(oldPath, newPath, err => {
 							if(err) throw err;
-							else res.sendfile('public/success-file.html');
+							User.findOneAndUpdate({_id: req.user._id}, {submitted: true}, (err, user) =>{
+							 	if(err) throw err;
+								res.sendfile('public/success-file.html');
+							});
 						});
 					});
 				} else {

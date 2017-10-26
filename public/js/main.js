@@ -6,10 +6,10 @@ $(document).ready(() => {
 		url: '/user/details',
 		type: 'GET',
 		success: function(result) {
-			$('#inputName').val(result.data.name);
-			$('#inputEmail').val(result.data.email);
-			$('#inputRegNo').val(result.data.regNo);
-			$('#inputMembershipNo').val(result.data.membershipNo);
+			$('#inputName').val(result.name);
+			$('#inputEmail').val(result.email);
+			$('#inputRegNo').val(result.regNo);
+			$('#inputMembershipNo').val(result.membershipNo);
 		}
 	});
 

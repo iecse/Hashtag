@@ -16,7 +16,15 @@ module.exports = passport => {
 				nameConst = user.facebook.name;
 			else if(user['google']['name'])
 				nameConst = user.google.name;
-			done(err, {_id: user._id, name: user.name, nameConst: nameConst});
+			done(err, {
+				admin: user.admin,
+				_id: user._id,
+				name: user.name,
+				nameConst: nameConst,
+				email: user.email,
+				regNo: user.regNo,
+				membershipNo: user.membershipNo
+			});
 		});
 	});
 
@@ -28,7 +36,7 @@ module.exports = passport => {
 		},
 		(token, refreshToken, profile, done) => {
 			process.nextTick(() => {
-				User.findOne({ 'facebook.id': profile.id }, (err, user) => {
+				User.findOne({'facebook.id': profile.id}, (err, user) => {
 					if (err)
 						return done(err);
 					if (user)

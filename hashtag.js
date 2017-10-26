@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const upload = require('./routes/upload');
 const user = require('./routes/user');
+const admin = require('./routes/admin');
 const index = require('./routes/index');
 const auth = require('./routes/auth')(passport);
 const configDb = require('./config/database');
@@ -29,6 +30,7 @@ app.use('/', index);
 app.use('/auth', auth);
 app.use('/upload', upload);
 app.use('/user', user);
+app.use('/admin', admin);
 app.use(redirectUnmatched);
 
 function redirectUnmatched(req, res) {
@@ -49,7 +51,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-	console.log(err);
+	    console.log(err);
         res.send('error');
     });
 }
