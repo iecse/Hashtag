@@ -25,13 +25,15 @@ router.get('/submissions/:nameConst/:id', isLoggedInAndAdmin, (req, res) => {
 	const nameConst = req.params.nameConst;
 	const id = req.params.id;
 	const dir = __dirname + '/../uploads/' + nameConst + ' - ' + id;
-	fs.readdir(dir, (err, file) => {
-		if(err) throw err;
-		if(file) {
-			const f = nameConst + ' - ' + id + '/' + file;
-			res.sendfile(f, {root: 'uploads/'});
-		} else res.end();
-	})
+	if(fs.existsSync(dir)) {
+		fs.readdir(dir, (err, file) => {
+			if(err) throw err;
+			if(file) {
+				const f = nameConst + ' - ' + id + '/' + file;
+				res.sendfile(f, {root: 'uploads/'});
+			} else res.end();
+		});
+	} else res.end();
 });
 
 function delExtra(user) {

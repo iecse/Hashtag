@@ -6,10 +6,10 @@ $(document).ready(() => {
 		success: function(result) {
 			users = result;
 			result.filter(user => user.submitted).forEach((user) => {
-				$('#users').append(makeUserDiv(user.name, user.id, true));
+				$('#users').append(makeUserDiv(user.name, user.nameConst, user.id, true));
 			});
 			result.filter(user => !user.submitted).forEach((user) => {
-				$('#users').append(makeUserDiv(user.name, user.id, false));
+				$('#users').append(makeUserDiv(user.name, user.nameConst, user.id, false));
 			});
 		}
 	});
@@ -54,7 +54,7 @@ function view(id) {
 	$('#modal-name-const').text(user.nameConst);
 }
 
-function makeUserDiv(name, id, submitted) {
+function makeUserDiv(name, nameConst, id, submitted) {
 
 	if(submitted)
 		var submittedClass = 'submitted'
@@ -64,7 +64,7 @@ function makeUserDiv(name, id, submitted) {
 		<div class="name">${name}</div>
 		<div class="users-right">
 			<div class="download">
-				<a href="/admin/submissions/${name}/${id}" download="Hashtag Submission">
+				<a href="/admin/submissions/${nameConst}/${id}" download="Hashtag Submission">
 					Download Submission
 				</a>
 			</div>

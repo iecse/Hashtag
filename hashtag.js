@@ -52,7 +52,7 @@ if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
 	    console.log(err);
-        res.send('error');
+        res.sendfile('public/error.html');
     });
 }
 
@@ -60,7 +60,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.send('Error occured');
+    res.sendfile('public/error.html');
 });
 
 const port = 3000;
