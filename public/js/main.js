@@ -22,4 +22,17 @@ $(document).ready(() => {
 		else $('#uploaded-file').text(this.files[0].name);
 	});
 
+	$('#submit-button').click(e => {
+		e.preventDefault();
+		var fields = $('#file-upload').serializeArray();
+	        if(validator.isAlpha(fields[0].value.replace(/ /g, '')) && validator.isLength(fields[0].value.toString(), {min: 0, max: 50}) && validator.isEmail(fields[1].value) && validator.isNumeric(fields[2].value.toString()) && validator.isLength(fields[2].value.toString(), {min: 9, max: 9}) && validator.isNumeric(fields[3].value.toString()) && validator.isLength(fields[3].value.toString(), {min: 5, max: 5}))
+			$('#file-upload').submit();
+		else {
+			$('#snackbar').toggleClass('show');
+			setTimeout(function() {
+				$('#snackbar').toggleClass('show');
+			}, 3000);
+		}
+	});
+
 });

@@ -7,6 +7,7 @@
 	<link rel="icon" href="/images/logo-white.png">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body id="main-body">
 	<div class="logout-container">
@@ -19,14 +20,18 @@
 			<input id="inputRegNo" type="text" name="regNo" placeholder="Enter registration number" /><br />
 			<input id="inputMembershipNo" type="text" name="membershipNo" placeholder="Enter membership number" /><br />
 			<div id="uploaded-file">Upload a file</div>
+			<button id="open-upload" type="button"><i class="fa fa-upload" aria-hidden="true"></i>Upload</button>
 			<div class="form-submit">
-				<button id="open-upload" type="button"><i class="fa fa-upload" aria-hidden="true"></i>Upload</button>
+				<div class="g-recaptcha" data-sitekey="6LdALDYUAAAAANn6ikNw_HWUtfCMYXd9EZuTDSvY"></div>
 				<input id="files"  type="file" name="filetoupload" />
-				<button id="submit-button" type="submit">Submit</button>
-			<div>
+				<div class="submit-button-container"><button id="submit-button" type="submit">Submit</button></div>
+			</div>
+		
 		</form>
 	</div>
+	<div id="snackbar">Invalid Details</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/validator.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
