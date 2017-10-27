@@ -1,4 +1,4 @@
-const types = ['application/pdf', 'text/plain', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.oasis.opendocument.tex'];
+const types = ['application/pdf', 'text/plain'];
 
 $(document).ready(() => {
 

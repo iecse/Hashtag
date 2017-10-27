@@ -38,6 +38,7 @@ button {
 	border-style: none none solid none;
 	border-width: thin;
 	border-color: #444;
+	overflow: hidden;
 }
 
 .submitted .download {
@@ -82,6 +83,8 @@ button {
 
 .name {
 	margin: 15px 15px 0 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 /**********************************************/
@@ -165,6 +168,10 @@ button {
 	margin: 0 auto;
 }
 
+.modal-content td:nth-child(2) {
+	text-overflow: ellipsis;
+}
+
 .modal-content tr:nth-child(odd) {
 	background-color: #2A2A2A;
 }
@@ -197,6 +204,13 @@ button {
 	margin: 0 auto;
 }
 
+@media only screen and (max-width: 985px) {
+
+        #user-details {
+                overflow: scroll;
+        }
+
+}
 
 @media only screen and (max-width: 750px) {
 
@@ -227,10 +241,6 @@ button {
 		overflow-y: scroll;
 	}
 
-	#user-details {
-		overflow: scroll;
-	}
-
 	.download a, .view {
 		font-size: 0.85rem;
 	}
@@ -255,6 +265,9 @@ button {
 	position: fixed;
 	z-index: 3;
 	left: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
 	bottom: 30px;
 	font-size: 17px;
 }

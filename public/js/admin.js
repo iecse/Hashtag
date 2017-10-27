@@ -61,7 +61,7 @@ function makeUserDiv(name, nameConst, id, submitted) {
 
 	let div = `
 	<div class="user ${submittedClass}">
-		<div class="name">${name}</div>
+		<div class="name">${$('<div/>').text(name).html()}</div>
 		<div class="users-right">
 			<div class="download">
 				<a href="/admin/submissions/${nameConst}/${id}" download="Hashtag Submission">

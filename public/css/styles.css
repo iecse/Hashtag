@@ -170,6 +170,7 @@ a {
 }
 
 #submit-button  {
+	font-family: 'Quicksand', sans-serif;
 	background-color: #000;
 	color: white;
 	padding: 12px 20px;
@@ -184,6 +185,7 @@ a {
 
 #file-upload input[type=text], #file-upload input[type=email] {
 	border-style: none none solid none;
+	border-radius: 0;
 	border-width: 1px;
 	border-color: #ddd;
 	width: 100%;
@@ -212,6 +214,8 @@ a {
 }
 
 #open-upload {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bolder;
 	background-color: #4285F4;
 	border-style: none;
 	color: white;
